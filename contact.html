@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f3f2ef">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="theme-color" content="#f3f2ef">
   <title>Contact | Grovziro Solutions</title><meta name="description" content="Book a free consultation with Grovziro Solutions and talk through your website and digital growth goals.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/styles.css"><script src="assets/site-config.js" defer></script><script src="assets/main.js" defer></script>
 </head>
@@ -42,12 +42,12 @@
           <form class="inquiry-form" id="inquiry-form" action="https://formsubmit.co/grovziro.solutions@gmail.com" method="POST">
             <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden>
             <input type="hidden" name="_subject" value="New Grovziro website enquiry">
-            <div class="form-field"><label for="name">NAME <span>*</span></label><input id="name" name="name" autocomplete="name" required placeholder="Your name"></div>
-            <div class="form-field"><label for="business-email">EMAIL <span>*</span></label><input id="business-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com"></div>
-            <div class="form-field"><label for="phone">PHONE <span>*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="Include your country code"></div>
-            <div class="form-field"><label for="country">COUNTRY <span>*</span></label><input id="country" name="country" autocomplete="country-name" required placeholder="Your country"></div>
-            <div class="form-field"><label for="company">COMPANY</label><input id="company" name="company" autocomplete="organization" placeholder="Your business"></div>
-            <div class="form-field form-field-full"><label for="details">PROJECT DETAILS <span>*</span></label><textarea id="details" name="details" rows="5" required placeholder="Tell us about your goals, timeline, and what you need help with..."></textarea></div>
+            <div class="form-field"><label for="name">NAME <span>*</span></label><input id="name" name="name" autocomplete="name" maxlength="100" required placeholder="Your name"></div>
+            <div class="form-field"><label for="business-email">EMAIL <span>*</span></label><input id="business-email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@company.com"></div>
+            <div class="form-field"><label for="phone">PHONE <span>*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required placeholder="Include your country code"></div>
+            <div class="form-field"><label for="country">COUNTRY <span>*</span></label><input id="country" name="country" autocomplete="country-name" maxlength="80" required placeholder="Your country"></div>
+            <div class="form-field"><label for="company">COMPANY</label><input id="company" name="company" autocomplete="organization" maxlength="160" placeholder="Your business"></div>
+            <div class="form-field form-field-full"><label for="details">PROJECT DETAILS <span>*</span></label><textarea id="details" name="details" rows="5" maxlength="5000" required placeholder="Tell us about your goals, timeline, and what you need help with..."></textarea></div>
             <button class="button form-submit" type="submit">Send enquiry <span aria-hidden="true">↗</span></button>
             <p class="form-note" id="form-status" role="status" aria-live="polite">Your name, email, phone, country, and project details are sent through FormSubmit to grovziro.solutions@gmail.com. FormSubmit says it retains submissions for 30 days. Please don’t include sensitive information.</p>
           </form>
