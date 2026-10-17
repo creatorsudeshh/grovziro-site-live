@@ -42,11 +42,12 @@
           <form class="inquiry-form" id="inquiry-form">
             <div class="form-field"><label for="name">NAME <span>*</span></label><input id="name" name="name" autocomplete="name" required placeholder="Your name"></div>
             <div class="form-field"><label for="business-email">EMAIL <span>*</span></label><input id="business-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com"></div>
-            <div class="form-field"><label for="phone">PHONE</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone number"></div>
+            <div class="form-field"><label for="phone">PHONE <span>*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="Include your country code"></div>
+            <div class="form-field"><label for="country">COUNTRY <span>*</span></label><input id="country" name="country" autocomplete="country-name" required placeholder="Your country"></div>
             <div class="form-field"><label for="company">COMPANY</label><input id="company" name="company" autocomplete="organization" placeholder="Your business"></div>
             <div class="form-field form-field-full"><label for="details">PROJECT DETAILS <span>*</span></label><textarea id="details" name="details" rows="5" required placeholder="Tell us about your goals, timeline, and what you need help with..."></textarea></div>
             <button class="button form-submit" type="submit">Continue to email <span aria-hidden="true">↗</span></button>
-            <p class="form-note" id="form-status" role="status" aria-live="polite">Submitting opens an email draft addressed to grovziro.solutions@gmail.com. Press Send in your email app to deliver it.</p>
+            <p class="form-note" id="form-status" role="status" aria-live="polite">Your name, email, phone, country, and project details will be added to an email addressed to grovziro.solutions@gmail.com. Press Send in your email app to deliver it.</p>
           </form>
         </div>
       </div>
