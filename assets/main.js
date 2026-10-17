@@ -44,11 +44,14 @@
   const form = document.querySelector("#inquiry-form");
   const status = document.querySelector("#form-status");
   if (form && status) {
+    if (!config.contactEmail) {
+      status.textContent = "The enquiry email is not configured yet. Please contact Grovziro directly.";
+    }
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
       if (!config.contactEmail) {
-        status.textContent = "Your enquiry form is ready. Grovziro's public reply-to email must be added before this form can send.";
+        status.textContent = "The enquiry email is not configured yet. Please contact Grovziro directly.";
         status.classList.add("form-note-pending");
         return;
       }
@@ -57,14 +60,14 @@
       const body = encodeURIComponent([
         `Name: ${data.get("name")}`,
         `Email: ${data.get("email")}`,
+        `Phone: ${data.get("phone") || "Not provided"}`,
         `Business: ${data.get("company") || "Not provided"}`,
-        `Market: ${data.get("market") || "Not provided"}`,
         "",
-        "What they would like to improve:",
+        "Project details:",
         data.get("details")
       ].join("\n"));
-      window.location.href = `mailto:${encodeURIComponent(config.contactEmail)}?subject=${subject}&body=${body}`;
-      status.textContent = "Your email app should open with your enquiry ready to send.";
+      window.location.href = `mailto:${config.contactEmail}?subject=${subject}&body=${body}`;
+      status.textContent = `Your email app should open with this enquiry addressed to ${config.contactEmail}. Press Send in that app to deliver it.`;
     });
   }
 })();
