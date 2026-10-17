@@ -10,11 +10,15 @@ A responsive, static five-page website built with HTML, CSS, and vanilla JavaScr
 - `about.html` — About
 - `contact.html` — Free-call enquiry form
 
-## Before publishing
+## Public site
 
-The exact domain and Cal.com booking link have not been provided. Add the approved booking URL in `assets/site-config.js` before publishing; all “Book a free call” links will use it. The contact form sends enquiries to `grovziro.solutions@gmail.com` through FormSubmit. FormSubmit must be activated from its first confirmation email before it can forward enquiries, and its documentation says submissions are retained for 30 days. Name, email, phone, country, business, and project details pass through FormSubmit.
+The site is published with GitHub Pages from the `main` branch at <https://creatorsudeshh.github.io/grovziro-site-live/>. A custom domain can be connected later.
 
-To finish booking setup, create a 30-minute personal event in Cal.com, set your availability and meeting location, then add its share link as `bookingUrl` in `assets/site-config.js`.
+## Enquiries and bookings
+
+All “Book a free call” links go directly to the 30-minute Cal.com consultation configured in `assets/site-config.js`.
+
+The contact form forwards enquiries to `grovziro.solutions@gmail.com` through FormSubmit. FormSubmit must be activated from its first confirmation email before it can forward enquiries. Its documentation says submissions are retained for 30 days. Name, email, phone, country, business, and project details pass through FormSubmit.
 
 The Work page intentionally contains no fabricated client results or testimonials. Add approved case-study details and images when they are available. The current logo is a text-based placeholder and can be replaced with Grovziro's supplied logo.
 
