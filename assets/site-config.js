@@ -1,5 +1,5 @@
-/* Add Grovziro's approved public contact details before publishing. */
+/* Public contact email used by the contact page and enquiry email draft. */
 window.GROVZIRO_CONFIG = {
   bookingUrl: "",
-  contactEmail: ""
+  contactEmail: "grovziro.solutions@gmail.com"
 };
