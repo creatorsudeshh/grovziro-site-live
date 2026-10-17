@@ -214,7 +214,7 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
 .page-hero-art { height: 330px; position: relative; overflow: hidden; display: grid; place-items: center; }
 .service-hero-art { height: 285px; overflow: visible; background: transparent; }
 .service-hero-glow { width: min(82%, 350px); aspect-ratio: 1; position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(71, 120, 245, .14), rgba(71, 120, 245, .045) 52%, transparent 72%); }
-.service-hero-image { width: min(112%, 520px); height: 100%; position: relative; z-index: 1; object-fit: contain; filter: drop-shadow(0 22px 34px rgba(36, 52, 99, .1)); animation: stacked-float 7s ease-in-out infinite; }
+.service-hero-image { width: min(112%, 520px); height: 100%; position: relative; z-index: 1; object-fit: contain; mix-blend-mode: multiply; filter: drop-shadow(0 22px 34px rgba(36, 52, 99, .1)); animation: stacked-float 7s ease-in-out infinite; }
 .service-hero-circle { width: 188px; height: 188px; position: absolute; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5px; border-radius: 50%; background: var(--blue); color: white; transform: rotate(-8deg); box-shadow: 0 18px 38px rgba(49, 90, 212, .24); }
 .service-hero-circle span { font-size: 10px; font-weight: 800; letter-spacing: .12em; }
 .service-hero-circle b { font-size: 14px; line-height: 1; }
