@@ -44,31 +44,70 @@
   const form = document.querySelector("#inquiry-form");
   const status = document.querySelector("#form-status");
   if (form && status) {
-    if (!config.contactEmail) {
+    if (!config.contactEmail || !config.formEndpoint) {
       status.textContent = "The enquiry email is not configured yet. Please contact Grovziro directly.";
     }
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
-      if (!config.contactEmail) {
+      if (!config.contactEmail || !config.formEndpoint) {
         status.textContent = "The enquiry email is not configured yet. Please contact Grovziro directly.";
         status.classList.add("form-note-pending");
         return;
       }
       const data = new FormData(form);
-      const subject = encodeURIComponent(`Website enquiry from ${data.get("name")}`);
-      const body = encodeURIComponent([
-        `Name: ${data.get("name")}`,
-        `Email: ${data.get("email")}`,
-        `Phone: ${data.get("phone")}`,
-        `Country: ${data.get("country")}`,
-        `Business: ${data.get("company") || "Not provided"}`,
-        "",
-        "Project details:",
-        data.get("details")
-      ].join("\n"));
-      window.location.href = `mailto:${config.contactEmail}?subject=${subject}&body=${body}`;
-      status.textContent = `Your email app should open with this enquiry addressed to ${config.contactEmail}. Press Send in that app to deliver it.`;
+      if (window.location.protocol === "file:") {
+        const subject = encodeURIComponent(`Website enquiry from ${data.get("name")}`);
+        const body = encodeURIComponent([
+          `Name: ${data.get("name")}`,
+          `Email: ${data.get("email")}`,
+          `Phone: ${data.get("phone")}`,
+          `Country: ${data.get("country")}`,
+          `Business: ${data.get("company") || "Not provided"}`,
+          "",
+          "Project details:",
+          data.get("details")
+        ].join("\n"));
+        window.location.href = `mailto:${config.contactEmail}?subject=${subject}&body=${body}`;
+        status.textContent = "This laptop file preview can’t send enquiries automatically. Your email app should open with the details; press Send there. Automatic delivery works on the hosted website.";
+        return;
+      }
+      const payload = Object.fromEntries(data.entries());
+      payload._subject = `New Grovziro website enquiry from ${data.get("name")}`;
+      payload._replyto = data.get("email");
+      const submitButton = form.querySelector('[type="submit"]');
+      const originalButtonText = submitButton?.innerHTML;
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending…";
+      }
+      status.classList.remove("form-note-pending");
+      status.textContent = "Sending your enquiry…";
+
+      try {
+        const response = await fetch(config.formEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!response.ok || String(result.success).toLowerCase() !== "true") {
+          throw new Error(result.message || "The form service did not confirm delivery.");
+        }
+        form.reset();
+        status.textContent = "Thanks for reaching out. Your enquiry has been submitted to Grovziro Solutions, and we’ll be in touch soon.";
+      } catch (error) {
+        status.textContent = `We couldn’t confirm that your enquiry was sent. Please try again or email ${config.contactEmail} directly.`;
+        status.classList.add("form-note-pending");
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalButtonText;
+        }
+      }
     });
   }
 })();
