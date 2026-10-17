@@ -73,7 +73,6 @@
       payload._subject = `New Grovziro website enquiry from ${data.get("name")}`;
       payload._replyto = data.get("email");
       const submitButton = form.querySelector('[type="submit"]');
-      const originalButtonText = submitButton?.innerHTML;
       if (submitButton) {
         submitButton.disabled = true;
         submitButton.textContent = "Sending…";
@@ -102,7 +101,10 @@
       } finally {
         if (submitButton) {
           submitButton.disabled = false;
-          submitButton.innerHTML = originalButtonText;
+          const arrow = document.createElement("span");
+          arrow.setAttribute("aria-hidden", "true");
+          arrow.textContent = "↗";
+          submitButton.replaceChildren("Send enquiry ", arrow);
         }
       }
     });
