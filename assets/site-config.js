@@ -1,6 +1,5 @@
-/* Public contact email and form endpoint used by the contact page. */
+/* Public contact email used by the contact page and enquiry email draft. */
 window.GROVZIRO_CONFIG = {
   bookingUrl: "",
-  contactEmail: "grovziro.solutions@gmail.com",
-  formEndpoint: "https://formsubmit.co/ajax/grovziro.solutions@gmail.com"
+  contactEmail: "grovziro.solutions@gmail.com"
 };
