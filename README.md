@@ -12,7 +12,7 @@ A responsive, static five-page website built with HTML, CSS, and vanilla JavaScr
 
 ## Before publishing
 
-The project brief says Grovziro owns a domain, but the exact domain, booking link, and public contact email have not been provided. Add the approved booking URL and reply-to email in `assets/site-config.js` before publishing. The contact form currently prepares an email draft with the visitor's enquiry; it does not send data to a server.
+The exact domain and booking link have not been provided. Add the approved booking URL in `assets/site-config.js` before publishing. The public contact email is configured there. The contact form opens the visitor's email app with their enquiry addressed to Grovziro; they must press Send to deliver it. This static site does not automatically send or store form submissions. Automatic delivery requires a form service or backend.
 
 The Work page intentionally contains no fabricated client results or testimonials. Add approved case-study details and images when they are available. The current logo is a text-based placeholder and can be replaced with Grovziro's supplied logo.
 
