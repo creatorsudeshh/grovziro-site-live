@@ -60,7 +60,8 @@
       const body = encodeURIComponent([
         `Name: ${data.get("name")}`,
         `Email: ${data.get("email")}`,
-        `Phone: ${data.get("phone") || "Not provided"}`,
+        `Phone: ${data.get("phone")}`,
+        `Country: ${data.get("country")}`,
         `Business: ${data.get("company") || "Not provided"}`,
         "",
         "Project details:",
