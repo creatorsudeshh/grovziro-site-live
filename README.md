@@ -12,7 +12,7 @@ A responsive, static five-page website built with HTML, CSS, and vanilla JavaScr
 
 ## Before publishing
 
-The exact domain and Cal.com booking link have not been provided. Add the approved booking URL in `assets/site-config.js` before publishing; all “Book a free call” links will use it. The public contact email is configured there. The contact form opens the visitor's email app with their enquiry addressed to Grovziro; they must press Send to deliver it. Automatic delivery requires a form service or backend.
+The exact domain and Cal.com booking link have not been provided. Add the approved booking URL in `assets/site-config.js` before publishing; all “Book a free call” links will use it. The public contact email is configured there. The contact form prepares an email draft to `grovziro.solutions@gmail.com` containing the visitor's name, email, phone, country, business, and project details; the visitor must press Send. Automatic delivery requires an approved form service or a backend.
 
 To finish booking setup, create a 30-minute personal event in Cal.com, set your availability and meeting location, then add its share link as `bookingUrl` in `assets/site-config.js`.
 
