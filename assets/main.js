@@ -15,9 +15,6 @@
   document.querySelectorAll(".booking-link").forEach((link) => {
     if (config.bookingUrl) {
       link.href = config.bookingUrl;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.setAttribute("aria-label", `${link.textContent.trim()} (opens in a new tab)`);
     } else if (link.getAttribute("href") === "#contact-form") {
       link.href = "contact.html#contact-form";
     }
